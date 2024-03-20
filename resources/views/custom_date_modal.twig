@@ -1,0 +1,48 @@
+<div class="modal fade" id="customDateModal" tabindex="-1" aria-hidden="true" xmlns="http://www.w3.org/1999/html">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Custom Date</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="get" action="/customDate" class="custom-date-form">
+                <div class="modal-body">
+                    <div class="form-outline form-white mb-4">
+                        <label for="#from" class="fs-5">From:</label>
+                        <input type="datetime-local" name="startDate" required
+                               class="form-control form-control-lg"
+                               id="from"/>
+                    </div>
+                    <div class="form-outline form-white mb-4">
+                        <label for="#to" class="fs-5">To:</label>
+                        <input type="datetime-local" name="endDate" required
+                               class="form-control form-control-lg"
+                               id="to"/>
+                    </div>
+                    <div class="form-outline form-white mb-4">
+                        <label for="#granularity" class="fs-5">Granularity:</label>
+                        <select class="form-control form-control-lg granularityList" name="granularity" id="granularity">
+                            <option value="">Select</option>
+                            <option value="hourly">Hourly</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-success apply-custom-date-btn">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Apply
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

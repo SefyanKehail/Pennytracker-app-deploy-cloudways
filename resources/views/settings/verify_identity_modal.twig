@@ -1,0 +1,33 @@
+<div class="modal fade" id="verifyIdentityModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Save Changes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="/settings/authentication/toggle2FA" class="toggle-2FA-form">
+                <div class="modal-body">
+
+                    <div class="form-outline form-white mb-4">
+                        <p class="mb-3">
+                            Verify your identity.
+                        </p>
+                        <input type="password" name="password" required
+                               class="form-control form-control-lg"
+                               placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i>
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-success toggle-2FA-btn">
+                        <i class="bi bi-check-circle me-1"></i>
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

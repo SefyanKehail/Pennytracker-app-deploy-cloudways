@@ -1,0 +1,50 @@
+{% extends 'layout.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('transactions') }}
+{% endblock %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block content %}
+    <div class="transactions container content-body">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h2>Transactions</h2>
+            </div>
+            <div class="text-end mb-5 text-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newTransactionModal">
+                    <i class="bi bi-plus-circle me-1"></i>
+                    New Transaction
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadTransactionModal">
+                    <i class="bi bi-plus-circle me-1"></i>
+                    Import Transactions
+                </button>
+            </div>
+        </div>
+        <div>
+            {% include 'transactions/transaction_modal.twig' with {modal: {title: 'Create Transaction', id: 'newTransactionModal', isEdit: false}} %}
+            {% include 'transactions/transaction_modal.twig' with {modal: {title: 'Edit Transaction', id: 'editTransactionModal', isEdit: true}} %}
+            {% include 'transactions/upload_modal.twig' with {modal: {title: 'Upload Receipt', id: 'uploadReceiptModal', inputName: 'receipt', btnName: 'upload-receipt-btn'}}%}
+            {% include 'transactions/upload_modal.twig' with {modal: {title: 'Upload Transaction', id: 'uploadTransactionModal', inputName: 'transaction', btnName: 'upload-transaction-btn'}}%}
+        </div>
+        <div>
+            <table id="transactionsTable" class="table-responsive">
+                <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Receipt(s)</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

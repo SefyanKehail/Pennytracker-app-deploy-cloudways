@@ -1,0 +1,129 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('dashboard') }}
+{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+    {% if alert %}
+        {% include './alerts/alert.twig' %}
+    {% endif %}
+
+    {% include 'custom_date_modal.twig' %}
+    <div>
+        <ul class="nav nav-pills align-items-center nav-layout">
+            <li class="nav-item">
+                <a href="/TODAY" class="nav-link fw-bold fs-5 {{ dateRange == 'TODAY' ? 'active' : '' }}"
+                   aria-current="page">Today</a>
+            </li>
+            <li class="nav-item">
+                <a href="/WTD" class="nav-link fw-bold fs-5 {{ dateRange == 'WTD' ? 'active' : '' }}"
+                   aria-current="page">Week</a>
+            </li>
+            <li class="nav-item">
+                <a href="/MTD" class="nav-link fw-bold fs-5 {{ dateRange == 'MTD' ? 'active' : '' }}"
+                   aria-current="page">Month</a>
+            </li>
+            <li class="nav-item">
+                <a href="/YTD" class="nav-link fw-bold fs-5 {{ dateRange == 'YTD' or dateRange == '' ? 'active' : '' }}"
+                   aria-current="page">Year</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link fw-bold fs-5 {{ dateRange == 'customDate' ? 'active' : '' }}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#customDateModal"
+                   aria-current="page"><i class="bi bi-calendar"></i>
+                    &nbsp;&nbsp;Custom Date</a>
+            </li>
+        </ul>
+    </div>
+    <div class="dashboard row" data-date-range="{{ dateRange }}">
+        <div class="left-column">
+            <div class="totals-container row mb-4">
+                <div class="col">
+                    <div class="total-card d-flex align-items-center justify-content-center rounded-4 shadow p-3 bg-white mb-1">
+                        <div>
+                            <h6 class="fs-5 fw-bold">Expense</h6>
+                            <h1 class="fs-4 text-danger text-center text-opacity-75">
+                                ${{ totals.expense | number_format(2) }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="total-card d-flex align-items-center justify-content-center rounded-4 shadow p-1 bg-white">
+                        <div>
+                            <h6 class="fs-5 fw-bold">Net</h6>
+                            <h1 class="fs-4 text-center text-opacity-90 {{ totals.net >= 0 ? 'text-primary' : 'text-danger' }}">
+                                {{ totals.net > 0 ? '<i class="bi bi-emoji-smile"></i>':'' }}
+                                {{ totals.net < 0 ? '<i class="bi bi-emoji-frown"></i>':'' }}
+                                {{ totals.net == 0 ? '<i class="bi bi-emoji-neutral"></i>':'' }}
+                                ${{ totals.net | number_format(2) }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="total-card d-flex align-items-center justify-content-center rounded-4 shadow p-3 bg-white">
+                        <div>
+                            <h6 class="fs-5 fw-bold">Income</h6>
+                            <h1 class="fs-4 text-success text-center text-opacity-75">
+                                ${{ totals.income | number_format(2) }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container row mb-4 rounded-4 shadow p-3 bg-white">
+                <div class="col p-4">
+                    <h6 class="fs-5 fw-bold">Summary</h6>
+                    <canvas id="yearToDateChart">
+                    </canvas>
+                </div>
+            </div>
+            <div class="categories-container row mb-4">
+                {% for spendingCategory in topSpendingCategories %}
+                    <div class="col">
+                        <div class="category-card p-3 d-flex align-items-center justify-content-center rounded-4 shadow p-3 bg-white">
+                            <div>
+                                <h6 class="fs-6 fw-bold">{{ spendingCategory.name }}</h6>
+                                <h1 class="fs-5 text-danger text-opacity-75">
+                                    ${{ spendingCategory.total | number_format(2) }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="transactions-container">
+            <div class="col">
+                <table class="table table-hover rounded-4 overflow-hidden shadow p-3 bg-white">
+                    <th colspan="3" class="px-4 py-4"><h5 class="fs-5 fw-bold">Recent Transactions</h5></th>
+                    <tbody>
+                    {% for transaction in transactions %}
+                        <tr>
+                            <td class="px-4 py-3">{{ transaction.description[0:20] }}</td>
+                            <td class="px-4 py-3 text-opacity-75 {{ transaction.amount > 0 ? 'text-success fw-bold' : 'text-danger fw-bold' }}">
+                               <span>
+                                    {{ transaction.amount < 0 ? '-' : '' }}${{ transaction.amount | abs | number_format(2) }}
+                               </span>
+
+                            </td>
+                            <td class="px-4 py-3">
+                                <div>{{ transaction.category ? transaction.category.name : 'N/A' }}</div>
+                                <div>{{ transaction.date | date('m/d/Y') }}</div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

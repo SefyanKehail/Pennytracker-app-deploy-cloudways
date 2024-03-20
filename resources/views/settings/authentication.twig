@@ -1,0 +1,38 @@
+{% extends 'settings/index.twig' %}
+
+{% block settings_content %}
+    <div id="authenticationContent">
+        {% include 'settings/verify_identity_modal.twig' %}
+        <h4 class="mb-4">Two Factor Authentication</h4>
+        <div class="form-outline form-white col-xl-8 shadow p-3 mb-5 bg-white rounded d-flex  align-items-center justify-content-between">
+            <p class="mb-0">
+                Two-factor-authentication is
+                <strong class="{{ isTwoFactorEnabled ? 'text-success' : 'text-danger' }}">
+                    {{ isTwoFactorEnabled ? 'enabled' : 'disabled' }}
+                </strong>
+            </p>
+            <button class="btn {{ isTwoFactorEnabled ? 'btn-danger' : 'btn-success' }} text-end"
+                    type="button" data-bs-target="#verifyIdentityModal"
+                    data-bs-toggle="modal">
+                {{ isTwoFactorEnabled ? 'Disable' : 'Enable' }}
+            </button>
+        </div>
+
+        {% if not isToFactorEnabled %}
+            <h4 class="mb-4">Active 2FA code</h4>
+            <div class="form-outline form-white col-xl-8 shadow p-3 mb-5 bg-white rounded d-flex  align-items-center justify-content-between active-2FA-code">
+                {% if isCodeEnabled and expiration > 0 %}
+                    <p class="mb-0">
+                        You have an active code for <strong class="text-warning-emphasis countdown"
+                                                            data-timestamp="{{ expiration }}">--:--</strong>
+                    </p>
+                    <button class="btn btn-danger text-end disable-active-code-btn" type="button">
+                        Disable
+                    </button>
+                {% else %}
+                    <p class="mb-0">No currently active code.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

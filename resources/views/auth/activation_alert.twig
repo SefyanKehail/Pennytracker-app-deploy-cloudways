@@ -1,0 +1,27 @@
+{% extends 'layout.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('activation') }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container content-body">
+        <div class="alert alert-warning" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="bi bi-exclamation-triangle-fill mr-2" style="color: #FFD700;"></i>
+                &nbsp;&nbsp;
+                <div>
+                    <strong>Account Activation Required:</strong> Please activate your account by clicking the
+                    activation link in the email we sent to you.
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>Didn't receive the email?</p>
+            <button type="button" class="btn btn-warning resend-activation-email-btn">Resend Activation Email</button>
+        </div>
+    </div>
+
+{% endblock %}

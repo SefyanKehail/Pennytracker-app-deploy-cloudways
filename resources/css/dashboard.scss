@@ -1,0 +1,33 @@
+@import "./variables.scss";
+
+.top-container {
+  background-color: #FEFEFF;
+  height: 100%;
+}
+
+.left-column {
+  max-width: 65%;
+}
+
+.transactions-container {
+  max-width: 35%;
+}
+
+.category-card {
+  background-color: #FEFEFF;
+  height: 150px;
+}
+
+.total-card {
+  background-color: #FEFEFF;
+  height: 150px;
+}
+
+.totals-container {
+  max-width: 100%;
+}
+
+.chart-container {
+  background-color: #FEFEFF;
+  max-width: 100%;
+}

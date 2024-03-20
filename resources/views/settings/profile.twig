@@ -1,0 +1,59 @@
+{% extends 'settings/index.twig' %}
+
+{% block settings_content %}
+
+
+    <div id="profileContent">
+        {% include 'settings/change_password_modal.twig' %}
+        <form method="post" action="/settings/profile/update" class="profile-update-form">
+
+            <h4 class="mb-4">Email</h4>
+            <div class="form-outline form-white mb-4  col-xl-8 shadow p-3 mb-5 bg-white rounded">
+                <p class="mb-3">
+                    Sorry, changing your email is currently restricted for security reasons. If you need assistance or
+                    have
+                    concerns, please contact support at <strong>support@pennytracker.com</strong>.
+                    Thank you for your understanding.
+                </p>
+                <input type="email" name="email"
+                       class="form-control form-control-lg"
+                       value="{{ profile.email }}" disabled/>
+            </div>
+
+            <h4 class="mb-4">Name</h4>
+            <div class="form-outline form-white mb-4 col-xl-8 shadow p-3 mb-5 bg-white rounded">
+                <p class="mb-3">
+                    Edit your name.
+                </p>
+                <input type="text" name="name" required
+                       value="{{ profile.name }}"
+                       class="form-control form-control-lg"
+                       placeholder="Name"/>
+            </div>
+
+            <h4 class="mb-4">Save changes</h4>
+
+            <div class="form-outline form-white mb-4 col-xl-8 shadow p-3 mb-5 bg-white rounded">
+                <p class="mb-3">
+                    Verify your identity.
+                </p>
+                <input type="password" name="password" required
+                       class="form-control form-control-lg "
+                       placeholder="Password"/>
+            </div>
+            <div>
+                <button class="btn btn-primary text-end mb-4 save-changes-btn" type="button">
+                    <i class="bi bi-check-circle me-1"></i>
+                    Save changes
+                </button>
+                <p class="mb-0 text-dark">Or change your password
+                    <a href="#" class="text-primary fw-bold text-decoration-none" data-bs-toggle="modal"
+                       data-bs-target="#changePasswordModal">
+                        <i class="bi bi-key"></i>
+                        Here
+                    </a>
+                </p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

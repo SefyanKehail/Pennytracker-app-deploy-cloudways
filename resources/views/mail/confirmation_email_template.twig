@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+<table style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <tr>
+        <td style="padding: 20px; text-align: center; background-color: #3498db; color: #ffffff;">
+            <h2>PennyTracker Account Confirmation</h2>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px;">
+            <p>Dear User,</p>
+            <p>Thank you for creating an account with <b>PennyTracker</b>. To activate your account, please click the link below:</p>
+            <p style="text-align: center;">
+                <a href="{{ activationLink }}" style="display: inline-block; padding: 10px 20px; background-color: #3498db; color: #ffffff; text-decoration: none; border-radius: 5px;">Activate Account</a>
+            </p>
+            <p>Your activation link is valid until: {{ expirationDate }}, Please use it to complete the authentication process.</p>
+            <p>If you did not sign up for an account with <b>PennyTracker</b>, please ignore this email.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px; text-align: center; background-color: #f4f4f4;">
+            <p>&copy; 2024 <b>PennyTracker</b>. All rights reserved.</p>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
