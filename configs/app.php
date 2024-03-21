@@ -48,6 +48,7 @@ return [
         ]
     ],
     'mailer'                => [
+        'driver' => $_ENV['MAILER_DRIVER'],
         'dsn'  => $_ENV['MAILER_DSN'],
         'from' => $_ENV['MAILER_FROM']
     ],
