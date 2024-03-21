@@ -201,7 +201,6 @@ return array(
 
     MailerInterface::class => function (Config $config) {
 
-
         $transport = Transport::fromDsn($config->get('mailer.dsn'));
 
         return new Mailer($transport);
@@ -215,6 +214,7 @@ return array(
         $redis  = new Redis();
         $config = $config->get('redis');
         $redis->connect($config['host'], 6379);
+//        $redis->auth($config['password']);
         return new RedisAdapter($redis);
     },
 

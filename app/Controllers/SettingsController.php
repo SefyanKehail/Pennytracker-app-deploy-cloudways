@@ -55,9 +55,14 @@ class SettingsController
 
         $user2FACode = $this->user2FACodeService->getByUser($user);
 
-        $expiration = $user2FACode->getExpirationDate()->getTimestamp() - time();
+        if ($user2FACode){
+            $expiration = $user2FACode->getExpirationDate()->getTimestamp() - time();
+            $isCodeEnabled = $user2FACode->isEnabled();
+        } else {
+            $expiration = null;
+            $isCodeEnabled = null;
+        }
 
-        $isCodeEnabled = $user2FACode->isEnabled();
 
         return $this->twig->render($response,
             'settings/authentication.twig',
