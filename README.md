@@ -59,7 +59,7 @@ project/
 │   └── Session.php        # Sessions wrapper
 │   └── Auth.php           # Main authentication class│
 │
-││
+│
 ├── configs/                           # Configuration files
 │   ├── commands/                      # each php file returns an array of commands as objects
 │   ├── container/                     # container configs
