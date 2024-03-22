@@ -37,7 +37,7 @@ return [
         'samesite' => 'lax'
     ],
     'storage'               => [
-        'adapter' => StorageAdapter::Remote_DO,
+        'adapter' => StorageAdapter::tryFrom($_ENV['STORAGE_ADAPTER']),
         's3' => [
             'key' => $_ENV['S3_KEY'],
             'secret'=> $_ENV['S3_SECRET'],

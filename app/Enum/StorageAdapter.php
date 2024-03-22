@@ -2,8 +2,9 @@
 
 namespace App\Enum;
 
-enum StorageAdapter
+enum StorageAdapter: string
 {
-    case Local;
-    case Remote_DO;
+    case Local = 'local';
+    case Remote_DO = 's3';
+
 }
