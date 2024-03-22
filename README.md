@@ -24,7 +24,7 @@
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#env">Development Environment</a></li>
-    <li><a href="#backend-fronted">Backend/ Frontend</a></li>
+    <li><a href="#backend-frontend">Backend/ Frontend</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#deployment">deployment</a></li>
     <li><a href="#key-points">Key Points</a></li>
@@ -80,6 +80,13 @@ project/
 │   ├── xdebug.ini                  # Xdebug file
 │   └── local.ini                   # PHP config file
 │
+├── resources/            # App resources
+│   ├── css/              # scss files
+│   ├── images/           # images
+│   ├── js/               # javascript files
+│   └── views/            # twig views
+│
+│
 ├── public/               # Web root
 │   ├── index.php         # Entry point
 │   └── build             # Build files
@@ -106,7 +113,7 @@ project/
     </li>
 </ul>
 
-<h2 href="#backend-fronted">Backend/ Frontend</h2>
+<h2 href="#backend-frontend">Backend/ Frontend</h2>
 <ul>
     <li><code>Nginx:</code> As my development server.</li>
     <li><code>PHP 8.1:</code> Backend</li>
@@ -139,8 +146,7 @@ project/
     <li>Run npm: <code>npm install/ npm run dev</code></li>
     <li>Copy .env.example .env and fill in (storage is either local or s3)</li>
     <li>Run migirations diff using our app console: <code>php pennytracker migrations:diff </code></li>
-    <li>Execute the migration (delete existing migrations from /migrations/ if it doesn't work): <code>php pennytracker
-        migrate</code></li>
+    <li>Execute the migration: <code>php pennytracker migrate</code></li>
     <li>Generate APP-KEY: <code>php pennytracker app:generate-key</code></li>
 </ol>
 
@@ -186,10 +192,9 @@ project/
     WSL is memory leaks
     so you'd probably set the max resources for WSL by creating a file (.wslconfig) in C:\Users\Username and set it like
     this:</p>
-<code>
-    [wsl2]
+<code>[wsl2]
     memory=1GB # Limits VM memory in WSL 2. If you want less than 1GB, use something like 500MB, not 0.5GB
-    processors=1 # Makes the WSL 2 VM use two virtual processors
+    processors=2 # Makes the WSL 2 VM use two virtual processors
 </code>
 
 <p>For linux permission issues</p>
@@ -206,8 +211,10 @@ project/
 </p>
 
 <h3>Related to App container</h3>
-
 <p>NPM Troubleshooting</p>
-<p>set up dedicated ram from WSL VM (give it the half)<code>NODE_OPTIONS="--max-old-space-size=512"</code></p>
-<p>Update NPM<code>npm install -g npm@latest </code></p>
-<p>Clear Cache<code>npm cache clean --force</code></p>
+<ul><li>set up dedicated ram from WSL VM (give it the half)<code>NODE_OPTIONS="--max-old-space-size=512"</code></li></ul>
+<ul><li>Update NPM<code>npm install -g npm@latest </code></li></ul>
+<ul><li>Clear Cache<code>npm cache clean --force</code></li></ul>
+
+<p>Migrations</p>
+<ul><li>delete migrations in migrations/ folder if migrating up for the first time doesn't work</li></ul>
