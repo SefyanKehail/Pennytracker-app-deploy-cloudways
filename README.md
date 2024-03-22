@@ -127,6 +127,7 @@ project/
     <li><code>Flysystem (AWS S3 adapter for production):</code> I used DigitalOcean AWS services ( 200$ 2 months for
         free)
     </li>
+    <li><code>Bootstrap V5</code></li>
     <li><code>Native JavaScript</code></li>
     <li><code>NodeJS NPM:</code> Manage JS packages</li>
     <li><code>Clockwork (Monitoring):</code> Helped a lot to identify slow SQL queries/memory leaks</li>
