@@ -222,6 +222,6 @@ project/
 
 <h3>Extra (Generate CSV files for testing)</h3>
 <p>
-In the app folder I added a directory Python_utils/ I added a python script there to generate transactions in a csv file
-with custom lines number for testing, the maximum upload size is 5MB which is roughly around 77k lines max
+In added a python script in app/Python-utils to generate CSV files for transactions upload testing.
+You can choose a custom number of lines, that is to say the maximum upload size is 5MB which is roughly around 77k lines max
 </p>
