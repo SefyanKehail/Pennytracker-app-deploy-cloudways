@@ -219,3 +219,9 @@ project/
 
 <p>Migrations</p>
 <ul><li>delete migrations in migrations/ folder if migrating up for the first time doesn't work</li></ul>
+
+<h3>Extra (Generate CSV files for testing)</h3>
+<p>
+In the app folder I added a directory Python_utils/ I added a python script there to generate transactions in a csv file
+with custom lines number for testing, the maximum upload size is 5MB which is roughly around 77k lines max
+</p>
