@@ -3,7 +3,7 @@
 <h2 href="#introduction">Introduction</h2>
 
 <p>
-    This project was developed using a Micro PHP Framework, As it serves the purpose, and It's more than enough for the
+    This project was developed using SLIM, a Micro PHP Framework, As it serves the purpose, and It's more than enough for the
     size of this project. The goal was to write a clean code and production-ready application.
     It's not as sophisticated as Symfony since you'll have to require most of the stuff you need and manually structure
     your code.
