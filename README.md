@@ -26,9 +26,9 @@
     <li><a href="#env">Development Environment</a></li>
     <li><a href="#backend-frontend">Backend/ Frontend</a></li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#deployment">deployment</a></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#key-points">Key Points</a></li>
-    <li><a href="#issues">issues</a></li>
+    <li><a href="#issues">Possible issues and their solutions</a></li>
 </ul>
 
 <h2 href="#project-structure">Project Structure</h2>
