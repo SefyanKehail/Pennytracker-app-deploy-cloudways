@@ -52,10 +52,10 @@ project/
 │   ├── Exceptions/        # Exceptions
 │   ├── Filters/           # Doctrine Filters
 │   ├── Mailing/           # Mailing classes
-│   ├── Services/          # Controllers
+│   ├── Services/          # Service classes
 │   ├── Validators/        # Input Validators
 │   └── Auth.php           # Main authentication class
-│   └── Config.php         # Config class that gets configs from the configs array by keys
+│   └── Config.php         # Retrieves configurations from <code>conifgs/app.php</code> which is a file that returns all configurations in my app, mapped from ENV file
 │   └── Session.php        # Sessions wrapper
 │   └── Auth.php           # Main authentication class│
 │
