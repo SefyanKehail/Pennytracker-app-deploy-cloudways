@@ -162,7 +162,6 @@ project/
     <li>Set up a web server with PHP support.</li>
     <li>Configure the web server and SMTP, (AWS S3 storage is already working)</li>
     <li>Configure deployment via Git</li>
-    <li>SSH to server</li>
     <li>SSH to server: <code>composer install/ npm install/ npm run build</code></li>
     <li>Set up .env file properly</li>
     <li>Generate APP-KEY: <code>php pennytracker app:generate-key</code></li>
