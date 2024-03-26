@@ -55,7 +55,7 @@ project/
 │   ├── Services/          # Service classes
 │   ├── Validators/        # Input Validators
 │   └── Auth.php           # Main authentication class
-│   └── Config.php         # Retrieves configurations from <code>conifgs/app.php</code> which is a file that returns all configurations in my app, mapped from ENV file
+│   └── Config.php         # Retrieves configurations from <code>conifgs/app.php</code>a file that returns all settings in my app
 │   └── Session.php        # Sessions wrapper
 │   └── Auth.php           # Main authentication class│
 │
