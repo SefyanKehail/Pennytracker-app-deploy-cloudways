@@ -96,7 +96,7 @@ project/
 │
 ├── .env.example                # ENV file params
 ├── bootstrap.php               # The file that bootstraps my app ( autoloader, dotenv..) returns container instance
-├── pennytracker                # PHP console file ( gets container instance from bootstrap file and commands arrays )
+├── pennytracker                # PHP console file (needs container instance from <code>bootstrap.php</code> file and array of commands from <code>configs/commands</code> )
 ├── webpack.configs.js          # Symfony webpack encore configuration
 ├── package.json                # NPM dependencies
 └── composer.json               # Composer dependencies
