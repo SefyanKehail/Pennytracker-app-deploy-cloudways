@@ -198,6 +198,7 @@ project/
 </code>
 
 <p>For linux permission issues</p>
+
 <code>sudo chmod -R a+rwX .</code>
 
 <h3>Related to Docker-desktop/ Docker</h3>
